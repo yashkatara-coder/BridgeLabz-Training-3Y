@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/full_stack/full_stack.iml" filepath="$PROJECT_DIR$/full_stack/full_stack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_control_flow/java_control_flow.iml" filepath="$PROJECT_DIR$/java_control_flow/java_control_flow.iml" />
       <module fileurl="file://$PROJECT_DIR$/untitled.iml" filepath="$PROJECT_DIR$/untitled.iml" />
     </modules>
   </component>
