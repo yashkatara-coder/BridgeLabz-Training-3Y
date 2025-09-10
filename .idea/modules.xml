@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/Strings/Strings.iml" filepath="$PROJECT_DIR$/Strings/Strings.iml" />
       <module fileurl="file://$PROJECT_DIR$/full_stack/full_stack.iml" filepath="$PROJECT_DIR$/full_stack/full_stack.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_control_flow/java_control_flow.iml" filepath="$PROJECT_DIR$/java_control_flow/java_control_flow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java_methods/java_methods.iml" filepath="$PROJECT_DIR$/java_methods/java_methods.iml" />
       <module fileurl="file://$PROJECT_DIR$/untitled.iml" filepath="$PROJECT_DIR$/untitled.iml" />
     </modules>
   </component>
