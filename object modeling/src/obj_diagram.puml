@@ -1,0 +1,254 @@
+
+//Sample Problem 1: School Results Application
+//Class Diagram
+@startuml
+class Student {
+  - name : String
+  - grade : String
+  + getSubjects() : List<Subject>
+}
+
+class Subject {
+  - name : String
+  - marks : int
+}
+
+class GradeCalculator {
+  + calculateGrade(student: Student) : String
+}
+
+Student "1" -- "*" Subject : has >
+GradeCalculator --> Student : computes
+@enduml
+
+,-------------------------------------------.
+|GradeCalculator                            |
+|-------------------------------------------|
+|+ calculateGrade(student: Student) : String|
+`-------------------------------------------'
+                      |
+                      |
+      ,-------------------------------.
+      |Student                        |
+      |-------------------------------|
+      |- name : String                |
+      |- grade : String               |
+      |+ getSubjects() : List<Subject>|
+      `-------------------------------'
+                      |
+              ,---------------.
+              |Subject        |
+              |---------------|
+              |- name : String|
+              |- marks : int  |
+              `---------------'
+
+                                                                    ********
+//Object Diagram
+@startuml
+object student1 {
+name = "John"
+grade = "A"
+        }
+
+object subject1 {
+name = "Maths"
+marks = 90
+        }
+
+object subject2 {
+name = "Science"
+marks = 85
+        }
+
+student1 -- subject1
+student1 -- subject2
+@enduml
+
+          ,-------------.
+          |student1     |
+          |-------------|
+          |name = "John"|
+          |grade = "A"  |
+          `-------------'
+
+
+,--------------.  ,----------------.
+|subject1      |  |subject2        |
+|--------------|  |----------------|
+|name = "Maths"|  |name = "Science"|
+|marks = 90    |  |marks = 85      |
+`--------------'  `----------------'
+
+                                                                            **********
+//Sequence Diagram
+@startuml
+actor Student
+participant GradeCalculator
+participant Subject
+
+Student -> GradeCalculator : requestGrade()
+GradeCalculator -> Subject : getMarks()
+Subject --> GradeCalculator : returnMarks()
+GradeCalculator --> Student : returnGrade("A")
+@enduml
+
+
+        ,-.
+        `-'
+        /|\
+         |              ,---------------.          ,-------.
+        / \             |GradeCalculator|          |Subject|
+      Student           `-------+-------'          `---+---'
+         |   requestGrade()     |                      |
+         |--------------------->|                      |
+         |                      |                      |
+         |                      |     getMarks()       |
+         |                      |--------------------->|
+         |                      |                      |
+         |                      |    returnMarks()     |
+         |                      |<- - - - - - - - - - -|
+         |                      |                      |
+         |  returnGrade("A")    |                      |
+         |<- - - - - - - - - - -|                      |
+      Student           ,-------+-------.          ,---+---.
+        ,-.             |GradeCalculator|          |Subject|
+        `-'             `---------------'          `-------'
+        /|\
+         |
+        / \
+
+
+**************************************************Sample Problem 2: Grocery Store Bill Generation************************************************
+Class Diagram
+@startuml
+class Customer {
+  - name : String
+  + getProducts() : List<Product>
+}
+
+class Product {
+  - name : String
+  - quantity : int
+  - pricePerUnit : double
+}
+
+class BillGenerator {
+  + generateBill(customer: Customer) : double
+}
+
+Customer "1" *-- "*" Product : contains >
+BillGenerator --> Customer : computes
+@enduml
+
+,-------------------------------------------.
+|BillGenerator                              |
+|-------------------------------------------|
+|+ generateBill(customer: Customer) : double|
+`-------------------------------------------'
+                      |
+                      |
+      ,-------------------------------.
+      |Customer                       |
+      |-------------------------------|
+      |- name : String                |
+      |+ getProducts() : List<Product>|
+      `-------------------------------'
+                      |
+          ,-----------------------.
+          |Product                |
+          |-----------------------|
+          |- name : String        |
+          |- quantity : int       |
+          |- pricePerUnit : double|
+          `-----------------------'
+
+
+
+                                                                        ******
+Object Diagram
+@startuml
+object customer1 {
+name = "Alice"
+        }
+
+object product1 {
+name = "Apples"
+quantity = 2
+pricePerUnit = 3
+        }
+
+object product2 {
+name = "Milk"
+quantity = 1
+pricePerUnit = 2
+        }
+
+customer1 *-- product1
+customer1 *-- product2
+@enduml
+
+
+           ,--------------.
+           |customer1     |
+           |--------------|
+           |name = "Alice"|
+           `--------------'
+
+
+,----------------.  ,----------------.
+|product1        |  |product2        |
+|----------------|  |----------------|
+|name = "Apples" |  |name = "Milk"   |
+|quantity = 2    |  |quantity = 1    |
+|pricePerUnit = 3|  |pricePerUnit = 2|
+`----------------'  `----------------'
+
+
+
+                                                                            ***************
+Sequence Diagram
+@startuml
+actor Customer
+participant BillGenerator
+participant Product
+
+Customer -> BillGenerator : checkout()
+BillGenerator -> Product : getPrice(Apples)
+Product --> BillGenerator : returnPrice(6)
+BillGenerator -> Product : getPrice(Milk)
+Product --> BillGenerator : returnPrice(2)
+BillGenerator --> Customer : displayBill(8)
+
+@enduml
+
+         ,-.
+         `-'
+         /|\
+          |               ,-------------.          ,-------.
+         / \              |BillGenerator|          |Product|
+      Customer            `------+------'          `---+---'
+          |     checkout()       |                     |
+          |--------------------->|                     |
+          |                      |                     |
+          |                      |  getPrice(Apples)   |
+          |                      |-------------------->|
+          |                      |                     |
+          |                      |   returnPrice(6)    |
+          |                      |<- - - - - - - - - - |
+          |                      |                     |
+          |                      |   getPrice(Milk)    |
+          |                      |-------------------->|
+          |                      |                     |
+          |                      |   returnPrice(2)    |
+          |                      |<- - - - - - - - - - |
+          |                      |                     |
+          |   displayBill(8)     |                     |
+          |<- - - - - - - - - - -|                     |
+      Customer            ,------+------.          ,---+---.
+         ,-.              |BillGenerator|          |Product|
+         `-'              `-------------'          `-------'
+         /|\
+          |
+         / \
+
