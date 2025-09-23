@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/i_p_i_ac.java/i_p_i_ac.java.iml" filepath="$PROJECT_DIR$/i_p_i_ac.java/i_p_i_ac.java.iml" />
       <module fileurl="file://$PROJECT_DIR$/inheritance/inheritance.iml" filepath="$PROJECT_DIR$/inheritance/inheritance.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_class/java_class.iml" filepath="$PROJECT_DIR$/java_class/java_class.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_constructor/java_constructor.iml" filepath="$PROJECT_DIR$/java_constructor/java_constructor.iml" />
       <module fileurl="file://$PROJECT_DIR$/keyword/keyword.iml" filepath="$PROJECT_DIR$/keyword/keyword.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scenerio_based_questions/scenerio_based_questions.iml" filepath="$PROJECT_DIR$/scenerio_based_questions/scenerio_based_questions.iml" />
       <module fileurl="file://$PROJECT_DIR$/untitled.iml" filepath="$PROJECT_DIR$/untitled.iml" />
     </modules>
   </component>
